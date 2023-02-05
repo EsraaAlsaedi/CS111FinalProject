@@ -3,12 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-/**
- *
- * @author esra
- */
+import java.util.Scanner;
+
 public class InvestmentPortfolio {
-public static void main(String[] args){
-    
-}    
+
+    public static void main(String[] args) {
+        Scanner read = new Scanner(System.in);
+        
+        
+        
+    }
 }
