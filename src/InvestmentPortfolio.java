@@ -24,10 +24,13 @@ public class InvestmentPortfolio {
          System.out.println("To show stock portfilo, please enters 2.");
          System.out.println("To exit the program, please enters 0");
          serviceID=read.nextInt();
+         if(serviceID>2 | serviceID<0)
+             System.out.println("Error: Invalid entry");
              //put switch here
          
          
          
-        } while(serviceID!=0 & (serviceID>2 | serviceID<0) );
+        } while(serviceID>2 | serviceID<0);
+        
     }
 }
