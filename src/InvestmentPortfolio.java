@@ -11,6 +11,10 @@ public class InvestmentPortfolio {
         Scanner read = new Scanner(System.in);
         
         
-        
+        String name2=read.next();
+        String id2=read.next();
+        int aaplShare2=read.nextInt();
+        int mfstShare2=read.nextInt();
+        int googlShare2=read.nextInt();
     }
 }
