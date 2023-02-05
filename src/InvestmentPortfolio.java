@@ -9,7 +9,7 @@ public class InvestmentPortfolio {
 
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
-        //here variables for user 1 
+        //here put variables for user 1 
         
         String name2=read.next();
         String id2=read.next();
