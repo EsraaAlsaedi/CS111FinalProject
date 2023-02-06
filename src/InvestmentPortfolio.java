@@ -41,12 +41,12 @@ public class InvestmentPortfolio {
             switch (serviceID) {
                 case 0: System.out.println("Message: Program ended");
                 case 1:
-                    /*System.out.printf("%s %n", "Clients Portfolio Summary :");
+                    System.out.printf("%s %n", "Clients Portfolio Summary :");
                     System.out.println("-----------------------------------");
                     System.out.printf("%-11s %-11s %-11s %-11s %-11s  %n", "Name", "ID", "AAPL", "MSFT", "GOOGL");
                     System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name1, id1, ap1, mp1, gp1);
                     System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name2, id2, ap2, mp2, gp2);
-                    System.out.println("-------------------------------------------------------");*/
+                    System.out.println("-------------------------------------------------------");
             }
 
         } while (serviceID > 2 | serviceID < 0);
