@@ -6,9 +6,9 @@
 import java.util.Scanner;
 
 public class InvestmentPortfolio {
-
+    
     public static void main(String[] args) {
-
+        
         System.out.println("For each client, please enter the last name of the client followed by the ID(5 digits), the share of AAPL, MSFT, and GOOGL: ");
         Scanner read = new Scanner(System.in);
 
@@ -54,24 +54,24 @@ public class InvestmentPortfolio {
         double appleChange = ((appleCurrent - appleClose) / appleClose) * 100;
         double msftChange = ((msftCurrent - msftClose) / msftClose) * 100;
         double googleChange = ((googleCurrent - googleClose) / googleClose) * 100;
-
+        
         int serviceID;
-
+        
         System.out.println("Welcome to Max Profit Stock Exchange");
-
+        
         do {
             //Showing the menu using do-while loop 
 
             System.out.println("To show equity summary, please enter 1.");
             System.out.println("To show stock portfilo, please enter 2.");
             System.out.println("To exit the program, please enter 0");
-
+            
             serviceID = read.nextInt();
-
+            
             if (serviceID > 2 | serviceID < 0) {
                 System.out.println("Error: Invalid entry");
             }
-
+            
             switch (serviceID) {
                 case 0:
                     System.out.println("Message: Program ended");
@@ -86,6 +86,7 @@ public class InvestmentPortfolio {
                     System.out.println();
                     break;
                 case 2:
+                    System.out.println();
                     System.out.printf("%s %n", "Stock status in details:");
                     System.out.println("-----------------------------------");
                     System.out.printf("%-21s %-16s %-27s %-17s %-4s %n", "Stock Name", "Stock Symbol", "Previous Closing Price", "Current Price", "Change Percent");
@@ -96,7 +97,7 @@ public class InvestmentPortfolio {
                     System.out.println();
                     break;
             }
-
+            
         } while (serviceID != 0); //The program will end and stop showing the menu if the client chooses 0
 
     }
