@@ -12,6 +12,8 @@ public class InvestmentPortfolio {
         System.out.println("For each client, please enter the last name of the client followed by the ID(5 digits), the share of AAPL, MSFT, and GOOGL: ");
         Scanner read = new Scanner(System.in);
 
+        //The program's constants
+        
         final String APCOM = "Apple Inc.";
         final String MSCOM = "Micosoft";
         final String GGCOM = "Alphabet Inc.";
@@ -19,18 +21,24 @@ public class InvestmentPortfolio {
         final String MSSYM = "MSFT";
         final String GGSYM = "GOOGL";
 
+        //Client 1 variables
+        
         String name1 = read.next();
         String id1 = read.next();
         int aaplShare1 = read.nextInt();
         int msftShare1 = read.nextInt();
         int googlShare1 = read.nextInt();
         
+        //Client 2 variables
+        
         String name2 = read.next();
         String id2 = read.next();
         int aaplShare2 = read.nextInt();
         int msftShare2 = read.nextInt();
         int googlShare2 = read.nextInt();
-
+    
+        //Closing prices and current price for each company
+        
         double appleClose = 0.40;
         double msftClose = 25.99;
         double googleClose = 148.00;
@@ -38,6 +46,8 @@ public class InvestmentPortfolio {
         double msftCurrent = 257.22;
         double googleCurrent = 95.00;
 
+        //Computing the share equity for the two users
+        
         double appleEquity1 = aaplShare1 * appleCurrent;
         double msftEquity1 = msftShare1 * msftCurrent;
         double googleEquity1 = googlShare1 * googleCurrent;
@@ -45,6 +55,8 @@ public class InvestmentPortfolio {
         double msftEquity2 = msftShare2 * msftCurrent;
         double googleEquity2 = googlShare2 * googleCurrent;
 
+        //Computing the percentage of change from the previous closing prices to current prices 
+        
         double appleChange = ((appleCurrent - appleClose) / appleClose) * 100;
         double msftChange = ((msftCurrent - msftClose) / msftClose) * 100;
         double googleChange = ((googleCurrent - googleClose) / googleClose) * 100;
@@ -54,6 +66,8 @@ public class InvestmentPortfolio {
         System.out.println("Welcome to Max Profit Stock Exchange");
 
         do {
+            //Showing the menu using do-while loop 
+            
             System.out.println("To show equity summary, please enter 1.");
             System.out.println("To show stock portfilo, please enter 2.");
             System.out.println("To exit the program, please enter 0");
@@ -86,7 +100,7 @@ public class InvestmentPortfolio {
                     break;
             }
 
-        } while (serviceID != 0);
+        } while (serviceID != 0); //The program will end and stop showing the menu if the client chooses 0
 
     }
 }
