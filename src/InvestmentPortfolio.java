@@ -25,7 +25,7 @@ public class InvestmentPortfolio {
         double gp1 = googlShare1 * 95.00;
         double ap2 = aaplShare2 * 141.52;
         double mp2 = msftShare2 * 257.22;
-        double gp2 = googlShare2 * 95.00;  
+        double gp2 = googlShare2 * 95.00;
         final String APCOM = "Apple Inc.";
         final String MSCOM = "Micosoft";
         final String GGCOM = "Alphabet Inc.";
@@ -40,7 +40,7 @@ public class InvestmentPortfolio {
         double ggcurrent = 95.00;
         double apchange = ((apcurrent - apclose) / apclose) * 100;
         double msftchange = ((msftcurrent - msftclose) / msftclose) * 100;
-        double ggchange = ((ggcurrent - ggclose) / (double) ggclose) * 100;
+        double ggchange = ((ggcurrent - ggclose) / ggclose) * 100;
         int serviceID;
 
         System.out.println("Welcome to Max Profit Stock Exchange");
@@ -66,7 +66,7 @@ public class InvestmentPortfolio {
                     System.out.println("------------------------------------------------------");
                     break;
                 case 2:
-                    System.out.printf("%s %n", "Stock status in details :");
+                    System.out.printf("%s %n", "Stock status in details:");
                     System.out.println("-----------------------------------");
                     System.out.printf("%-21s %-16s %-27s %-17s %-4s %n", "Stock Name", "Stock Symbol", "Previous Closing Price", "Current Price", "Change Percent");
                     System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", APCOM, APSYM, apclose, apcurrent, apchange);
