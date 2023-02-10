@@ -13,7 +13,6 @@ public class InvestmentPortfolio {
         Scanner read = new Scanner(System.in);
 
         //The program's constants
-        
         final String APCOM = "Apple Inc.";
         final String MSCOM = "Micosoft";
         final String GGCOM = "Alphabet Inc.";
@@ -22,23 +21,20 @@ public class InvestmentPortfolio {
         final String GGSYM = "GOOGL";
 
         //Client 1 variables
-        
         String name1 = read.next();
         String id1 = read.next();
         int aaplShare1 = read.nextInt();
         int msftShare1 = read.nextInt();
         int googlShare1 = read.nextInt();
-        
+
         //Client 2 variables
-        
         String name2 = read.next();
         String id2 = read.next();
         int aaplShare2 = read.nextInt();
         int msftShare2 = read.nextInt();
         int googlShare2 = read.nextInt();
-    
+
         //Closing prices and current price for each company
-        
         double appleClose = 0.40;
         double msftClose = 25.99;
         double googleClose = 148.00;
@@ -47,7 +43,6 @@ public class InvestmentPortfolio {
         double googleCurrent = 95.00;
 
         //Computing the share equity for the two users
-        
         double appleEquity1 = aaplShare1 * appleCurrent;
         double msftEquity1 = msftShare1 * msftCurrent;
         double googleEquity1 = googlShare1 * googleCurrent;
@@ -56,7 +51,6 @@ public class InvestmentPortfolio {
         double googleEquity2 = googlShare2 * googleCurrent;
 
         //Computing the percentage of change from the previous closing prices to current prices 
-        
         double appleChange = ((appleCurrent - appleClose) / appleClose) * 100;
         double msftChange = ((msftCurrent - msftClose) / msftClose) * 100;
         double googleChange = ((googleCurrent - googleClose) / googleClose) * 100;
@@ -67,12 +61,13 @@ public class InvestmentPortfolio {
 
         do {
             //Showing the menu using do-while loop 
-            
+
             System.out.println("To show equity summary, please enter 1.");
             System.out.println("To show stock portfilo, please enter 2.");
             System.out.println("To exit the program, please enter 0");
+
             serviceID = read.nextInt();
-            
+
             if (serviceID > 2 | serviceID < 0) {
                 System.out.println("Error: Invalid entry");
             }
@@ -88,6 +83,7 @@ public class InvestmentPortfolio {
                     System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name1, id1, appleEquity1, msftEquity1, googleEquity1);
                     System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name2, id2, appleEquity2, msftEquity2, googleEquity2);
                     System.out.println("------------------------------------------------------");
+                    System.out.println();
                     break;
                 case 2:
                     System.out.printf("%s %n", "Stock status in details:");
@@ -97,6 +93,7 @@ public class InvestmentPortfolio {
                     System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", MSCOM, MSSYM, msftClose, msftCurrent, msftChange);
                     System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", GGCOM, GGSYM, googleClose, googleCurrent, googleChange);
                     System.out.println("------------------------------------------------------");
+                    System.out.println();
                     break;
             }
 
