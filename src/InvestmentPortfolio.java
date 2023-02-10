@@ -31,23 +31,23 @@ public class InvestmentPortfolio {
         int msftShare2 = read.nextInt();
         int googlShare2 = read.nextInt();
 
-        double apClose = 0.40;
+        double appleClose = 0.40;
         double msftClose = 25.99;
-        double ggClose = 148.00;
-        double apCurrent = 141.52;
+        double googleClose = 148.00;
+        double appleCurrent = 141.52;
         double msftCurrent = 257.22;
-        double ggCurrent = 95.00;
+        double googleCurrent = 95.00;
 
-        double apple1 = aaplShare1 * apCurrent;
-        double microsoft1 = msftShare1 * msftCurrent;
-        double google1 = googlShare1 * ggCurrent;
-        double apple2 = aaplShare2 * apCurrent;
-        double microsoft2 = msftShare2 * msftCurrent;
-        double google2 = googlShare2 * ggCurrent;
+        double appleEquity1 = aaplShare1 * appleCurrent;
+        double msftEquity1 = msftShare1 * msftCurrent;
+        double googleEquity1 = googlShare1 * googleCurrent;
+        double appleEquity2 = aaplShare2 * appleCurrent;
+        double msftEquity2 = msftShare2 * msftCurrent;
+        double googleEquity2 = googlShare2 * googleCurrent;
 
-        double apChange = ((apCurrent - apClose) / apClose) * 100;
+        double appleChange = ((appleCurrent - appleClose) / appleClose) * 100;
         double msftChange = ((msftCurrent - msftClose) / msftClose) * 100;
-        double ggChange = ((ggCurrent - ggClose) / ggClose) * 100;
+        double googleChange = ((googleCurrent - googleClose) / googleClose) * 100;
 
         int serviceID;
 
@@ -71,17 +71,17 @@ public class InvestmentPortfolio {
                     System.out.printf("%s %n", "Clients Portfolio Summary :");
                     System.out.println("-----------------------------------");
                     System.out.printf("%-11s %-11s %-11s %-11s %-11s  %n", "Name", "ID", APSYM, MSSYM, GGSYM);
-                    System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name1, id1, apple1, microsoft1, google1);
-                    System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name2, id2, apple2, microsoft2, google2);
+                    System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name1, id1, appleEquity1, msftEquity1, googleEquity1);
+                    System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name2, id2, appleEquity2, msftEquity2, googleEquity2);
                     System.out.println("------------------------------------------------------");
                     break;
                 case 2:
                     System.out.printf("%s %n", "Stock status in details:");
                     System.out.println("-----------------------------------");
                     System.out.printf("%-21s %-16s %-27s %-17s %-4s %n", "Stock Name", "Stock Symbol", "Previous Closing Price", "Current Price", "Change Percent");
-                    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", APCOM, APSYM, apClose, apCurrent, apChange);
+                    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", APCOM, APSYM, appleClose, appleCurrent, appleChange);
                     System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", MSCOM, MSSYM, msftClose, msftCurrent, msftChange);
-                    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", GGCOM, GGSYM, ggClose, ggCurrent, ggChange);
+                    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", GGCOM, GGSYM, googleClose, googleCurrent, googleChange);
                     System.out.println("------------------------------------------------------");
                     break;
             }
