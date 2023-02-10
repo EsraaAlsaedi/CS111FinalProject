@@ -58,6 +58,7 @@ public class InvestmentPortfolio {
             System.out.println("To show stock portfilo, please enter 2.");
             System.out.println("To exit the program, please enter 0");
             serviceID = read.nextInt();
+            
             if (serviceID > 2 | serviceID < 0) {
                 System.out.println("Error: Invalid entry");
             }
