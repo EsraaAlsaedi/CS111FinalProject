@@ -6,33 +6,29 @@
 import java.util.Scanner;
 
 public class InvestmentPortfolio {
-    
+
+    static Scanner read = new Scanner(System.in);
+
     public static void main(String[] args) {
-        
+
         System.out.println("For each client, please enter the last name of the client followed by the ID(5 digits), the share of AAPL, MSFT, and GOOGL: ");
-        Scanner read = new Scanner(System.in);
 
-        //The program's constants
-        final String APCOM = "Apple Inc.";
-        final String MSCOM = "Micosoft";
-        final String GGCOM = "Alphabet Inc.";
-        final String APSYM = "AAPL";
-        final String MSSYM = "MSFT";
-        final String GGSYM = "GOOGL";
-
-        //Client 1 variables
-        String name1 = read.next();
-        String id1 = read.next();
-        int aaplShare1 = read.nextInt();
-        int msftShare1 = read.nextInt();
-        int googlShare1 = read.nextInt();
-
-        //Client 2 variables
-        String name2 = read.next();
-        String id2 = read.next();
-        int aaplShare2 = read.nextInt();
-        int msftShare2 = read.nextInt();
-        int googlShare2 = read.nextInt();
+        String[] stockSymbolsList =
+        {
+            "APPL", "MSFT", "GOOGL"
+        };
+        String[] stockNameList =
+        {
+            "Apple Inc.", "Microsoft", "Alphabet Inc."
+        };
+        double[] previousClosingPrice =
+        {
+            0.40, 25.99, 148.0
+        };
+        double[] currentPrice =
+        {
+            141.52, 257.22, 95.0
+        };
 
         //Closing prices and current price for each company
         double appleClose = 0.40;
@@ -54,25 +50,28 @@ public class InvestmentPortfolio {
         double appleChange = ((appleCurrent - appleClose) / appleClose) * 100;
         double msftChange = ((msftCurrent - msftClose) / msftClose) * 100;
         double googleChange = ((googleCurrent - googleClose) / googleClose) * 100;
-        
+
         int serviceID;
-        
+
         System.out.println("Welcome to Max Profit Stock Exchange");
-        
-        do {
+
+        do
+        {
             //Showing the menu using do-while loop 
 
             System.out.println("To show equity summary, please enter 1.");
             System.out.println("To show stock portfilo, please enter 2.");
             System.out.println("To exit the program, please enter 0");
-            
+
             serviceID = read.nextInt();
-            
-            if (serviceID > 2 | serviceID < 0) {
+
+            if (serviceID > 2 | serviceID < 0)
+            {
                 System.out.println("Error: Invalid entry");
             }
-            
-            switch (serviceID) {
+
+            switch (serviceID)
+            {
                 case 0:
                     System.out.println("Message: Program ended");
                     break;
@@ -97,8 +96,28 @@ public class InvestmentPortfolio {
                     System.out.println();
                     break;
             }
-            
-        } while (serviceID != 0); //The program will end and stop showing the menu if the client chooses 0
 
+        } while (serviceID != 0); //The program will end and stop showing the menu only if the client chooses 0
+
+    }
+    // displayStockStatus() method here
+
+    // displayEquitySummary() method here
+    public static void getClientsInfo() {
+
+        String[] clientNames = new String[5];
+        String[] clientIDs = new String[5];
+        int[] aaplShare = new int[5];
+        int[] msftShare = new int[5];
+        int[] googlShare = new int[5];
+
+        for (int i = 0; i < 5; i++)
+        {
+            clientNames[i] = read.next();
+            clientIDs[i] = read.next();
+            aaplShare[i] = read.nextInt();
+            msftShare[i] = read.nextInt();
+            googlShare[i] = read.nextInt();
+        }
     }
 }
