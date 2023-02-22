@@ -77,10 +77,6 @@ public class InvestmentPortfolio {
                    // displayEquitySummary();
                     break;
                 case 2:
-                    /*
-                    for(int i=0;i<3;i++){
-                    displayStockStatus(stockSymbolsList[i],stockNameList[i],previousClosingPrice[i],currentPrice[i]);
-                            };*/
                     displayStockStatus(stockSymbolsList,stockNameList,previousClosingPrice,currentPrice);
                     break;
             }
@@ -104,13 +100,13 @@ public class InvestmentPortfolio {
     // displayEquitySummary() method here
      private static void displayEquitySummary(String[] symbol , double[] closing){
      
-    /* System.out.printf("%s %n", "Clients Portfolio Summary :");
+     System.out.printf("%s %n", "Clients Portfolio Summary :");
      System.out.println("-----------------------------------");
-     System.out.printf("%-11s %-11s %-11s %-11s %-11s  %n", "Name", "ID", APSYM, MSSYM, GGSYM);
+     System.out.printf("%-11s %-11s %-11s %-11s %-11s  %n", "Name", "ID", symbol[0], symbol[1], symbol[2]);
      System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name1, id1, appleEquity1, msftEquity1, googleEquity1);
      System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name2, id2, appleEquity2, msftEquity2, googleEquity2);
      System.out.println("------------------------------------------------------");
-     System.out.println();    */
+     System.out.println();    
      }    
     public static void getClientsInfo() {
 
@@ -130,7 +126,6 @@ public class InvestmentPortfolio {
         }
     }
     public static double getChangePercent(double x,double y) {
-        
         double changePercent = (((x - y)/y)*100);
         return changePercent;
     }
