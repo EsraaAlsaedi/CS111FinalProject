@@ -71,7 +71,8 @@ public class InvestmentPortfolio {
     }
     // displayStockStatus() method here
     private static void displayStockStatus(String[] symbol ,String[] name ,float[] closing, float[] current ){
-    
+        
+    System.out.println();
     System.out.printf("%s %n", "Stock status in details:");
     System.out.println("-----------------------------------");
     System.out.printf("%-21s %-16s %-27s %-17s %-4s %n", "Stock Name", "Stock Symbol", "Previous Closing Price", "Current Price", "Change Percent");
@@ -113,3 +114,13 @@ public class InvestmentPortfolio {
         return changePercent;
     }
 }
+
+
+
+/*
+aa 12345 14 20 30 
+bb 12345 25 78 10
+cc 12345 12 20 12
+dd 12345 10 10 50
+ee 12345 23 15 62
+*/
