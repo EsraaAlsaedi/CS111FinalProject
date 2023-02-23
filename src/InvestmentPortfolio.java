@@ -8,6 +8,11 @@ import java.util.Scanner;
 public class InvestmentPortfolio {
 
     static Scanner read = new Scanner(System.in);
+    static String[] clientNames = new String[5];
+    static String[] clientIDs = new String[5];
+    static int[] aaplShare = new int[5];
+    static int[] msftShare = new int[5];
+    static int[] googlShare = new int[5];
 
     public static void main(String[] args) {
 
@@ -24,19 +29,8 @@ public class InvestmentPortfolio {
         
         double[] currentPrice =
         { 141.52, 257.22, 95.0 };
-        
-        
-        
-        String[] clientNames = new String[5];
-        String[] clientIDs = new String[5];
-        int[] aaplShare = new int[5];
-        int[] msftShare = new int[5];
-        int[] googlShare = new int[5];
-        
-        
-        
        
-        getClientsInfo(clientNames,clientIDs,aaplShare,msftShare,googlShare);
+        getClientsInfo();
         
         
         int serviceID;
@@ -65,7 +59,7 @@ public class InvestmentPortfolio {
                     break;
                 case 1:
 
-                    displayEquitySummary(stockSymbolsList , currentPrice, clientNames,clientIDs, aaplShare, msftShare, googlShare);
+                    displayEquitySummary(stockSymbolsList , currentPrice);
                     break;
                 case 2:
                     displayStockStatus(stockSymbolsList,stockNameList,previousClosingPrice,currentPrice);
@@ -89,8 +83,7 @@ public class InvestmentPortfolio {
     
     }
     // displayEquitySummary() method here
-     private static void displayEquitySummary(String[] symbol , double[] current, String [] clientNames, 
-             String[] clientIDs, int[] aaplShare, int[] msftShare, int[] googlShare){
+     private static void displayEquitySummary(String[] symbol , double[] current){
 
      System.out.printf("%s %n", "Clients Portfolio Summary :");
      System.out.println("-----------------------------------");
@@ -102,11 +95,7 @@ public class InvestmentPortfolio {
      }
      System.out.println();    
      }    
-    public static void getClientsInfo(String[] clientNames,
-        String[] clientIDs,
-        int[] aaplShare,
-        int[] msftShare,
-        int[] googlShare) {
+    public static void getClientsInfo() {
 
         for (int i = 0; i < 5; i++)
         {
