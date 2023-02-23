@@ -24,11 +24,11 @@ public class InvestmentPortfolio {
         String[] stockNameList =
         { "Apple Inc.", "Microsoft", "Alphabet Inc." };
         
-        double[] previousClosingPrice =
-        { 0.40, 25.99, 148.0 };
+        float[] previousClosingPrice =
+        { 0.40F, 25.99F, 148.0F };
         
-        double[] currentPrice =
-        { 141.52, 257.22, 95.0 };
+        float[] currentPrice =
+        { 141.52F, 257.22F, 95.0F };
        
         getClientsInfo();
         
@@ -70,20 +70,20 @@ public class InvestmentPortfolio {
 
     }
     // displayStockStatus() method here
-    private static void displayStockStatus(String[] symbol ,String[] name ,double[] closing, double[] current ){
+    private static void displayStockStatus(String[] symbol ,String[] name ,float[] closing, float[] current ){
     
     System.out.printf("%s %n", "Stock status in details:");
     System.out.println("-----------------------------------");
     System.out.printf("%-21s %-16s %-27s %-17s %-4s %n", "Stock Name", "Stock Symbol", "Previous Closing Price", "Current Price", "Change Percent");
-    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", symbol[0], name[0], (float)closing[0], (float)current[0], (float)getChangePercent((float)current[0],(float)closing[0]));
-    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", symbol[1], name[1], (float)closing[1], (float)current[1], (float)getChangePercent((float)current[1],(float)closing[1]));
-    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", symbol[2], name[2], (float)closing[2], (float)current[2], (float)getChangePercent((float)current[2],(float)closing[2]));
+    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", name[0], symbol[0], (float)closing[0], (float)current[0], (float)getChangePercent((float)current[0],(float)closing[0]));
+    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", name[1], symbol[1], (float)closing[1], (float)current[1], (float)getChangePercent((float)current[1],(float)closing[1]));
+    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", name[2], symbol[2], (float)closing[2], (float)current[2], (float)getChangePercent((float)current[2],(float)closing[2]));
     System.out.println("------------------------------------------------------");
     System.out.println();
     
     }
     // displayEquitySummary() method here
-     private static void displayEquitySummary(String[] symbol , double[] current){
+     private static void displayEquitySummary(String[] symbol , float[] current){
 
      System.out.printf("%s %n", "Clients Portfolio Summary :");
      System.out.println("-----------------------------------");
@@ -93,6 +93,7 @@ public class InvestmentPortfolio {
             System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", 
                     clientNames[i], clientIDs[i], aaplShare[i]*current[0], msftShare[i]*current[1], googlShare[i]*current[2]);
      }
+      System.out.println("------------------------------------------------------");
      System.out.println();    
      }    
     public static void getClientsInfo() {
@@ -107,8 +108,8 @@ public class InvestmentPortfolio {
         }   
 
     }
-    public static double getChangePercent(double x,double y) {
-        double changePercent = (((x - y)/y)*100);
+    public static double getChangePercent(float x,float y) {
+        float changePercent = (((x - y)/y)*100);
         return changePercent;
     }
 }
