@@ -7,76 +7,108 @@ import java.util.Scanner;
 
 public class InvestmentPortfolio {
 
+    static Scanner read = new Scanner(System.in);
+    static String[] clientNames = new String[5];
+    static String[] clientIDs = new String[5];
+    static int[] aaplShare = new int[5];
+    static int[] msftShare = new int[5];
+    static int[] googlShare = new int[5];
+
     public static void main(String[] args) {
+
         System.out.println("For each client, please enter the last name of the client followed by the ID(5 digits), the share of AAPL, MSFT, and GOOGL: ");
-        Scanner read = new Scanner(System.in);
-        String name1 = read.next();
-        String id1 = read.next();
-        int aaplShare1 = read.nextInt();
-        int msftShare1 = read.nextInt();
-        int googlShare1 = read.nextInt();
-        String name2 = read.next();
-        String id2 = read.next();
-        int aaplShare2 = read.nextInt();
-        int msftShare2 = read.nextInt();
-        int googlShare2 = read.nextInt();
-        double ap1 = aaplShare1 * 141.52;
-        double mp1 = msftShare1 * 257.22;
-        double gp1 = googlShare1 * 95.00;
-        double ap2 = aaplShare2 * 141.52;
-        double mp2 = msftShare2 * 257.22;
-        double gp2 = googlShare2 * 95.00;  
-        final String APCOM = "Apple Inc.";
-        final String MSCOM = "Micosoft";
-        final String GGCOM = "Alphabet Inc.";
-        final String APSYM = "AAPL";
-        final String MSSYM = "MSFT";
-        final String GGSYM = "GOOGL";
-        double apclose = 0.40;
-        double msftclose = 25.99;
-        double ggclose = 148.00;
-        double apcurrent = 141.52;
-        double msftcurrent = 257.22;
-        double ggcurrent = 95.00;
-        double apchange = ((apcurrent - apclose) / apclose) * 100;
-        double msftchange = ((msftcurrent - msftclose) / msftclose) * 100;
-        double ggchange = ((ggcurrent - ggclose) / (double) ggclose) * 100;
+
+        String[] stockSymbolsList =
+        { "APPL", "MSFT", "GOOGL" };
+        
+        String[] stockNameList =
+        { "Apple Inc.", "Microsoft", "Alphabet Inc." };
+        
+        double[] previousClosingPrice =
+        { 0.40, 25.99, 148.0 };
+        
+        double[] currentPrice =
+        { 141.52, 257.22, 95.0 };
+       
+        getClientsInfo();
+        
+        
         int serviceID;
 
         System.out.println("Welcome to Max Profit Stock Exchange");
-        do {
-            System.out.println("To show equity summary, please enters 1.");
-            System.out.println("To show stock portfilo, please enters 2.");
-            System.out.println("To exit the program, please enters 0");
+
+        do
+        {
+            //Showing the menu using do-while loop 
+
+            System.out.println("To show equity summary, please enter 1.");
+            System.out.println("To show stock portfilo, please enter 2.");
+            System.out.println("To exit the program, please enter 0");
+
             serviceID = read.nextInt();
-            if (serviceID > 2 | serviceID < 0) {
+
+            if (serviceID > 2 | serviceID < 0)
+            {
                 System.out.println("Error: Invalid entry");
             }
-            //put switch here
-            switch (serviceID) {
+
+            switch (serviceID)
+            {
                 case 0:
                     System.out.println("Message: Program ended");
                     break;
                 case 1:
-                    System.out.printf("%s %n", "Clients Portfolio Summary :");
-                    System.out.println("-----------------------------------");
-                    System.out.printf("%-11s %-11s %-11s %-11s %-11s  %n", "Name", "ID", APSYM, MSSYM, GGSYM);
-                    System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name1, id1, ap1, mp1, gp1);
-                    System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name2, id2, ap2, mp2, gp2);
-                    System.out.println("------------------------------------------------------");
+
+                    displayEquitySummary(stockSymbolsList , currentPrice);
                     break;
                 case 2:
-                    System.out.printf("%s %n", "Stock status in details :");
-                    System.out.println("-----------------------------------");
-                    System.out.printf("%-21s %-16s %-27s %-17s %-4s %n", "Stock Name", "Stock Symbol", "Previous Closing Price", "Current Price", "Change Percent");
-                    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", APCOM, APSYM, apclose, apcurrent, apchange);
-                    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", MSCOM, MSSYM, msftclose, msftcurrent, msftchange);
-                    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", GGCOM, GGSYM, ggclose, ggcurrent, ggchange);
-                    System.out.println("------------------------------------------------------");
+                    displayStockStatus(stockSymbolsList,stockNameList,previousClosingPrice,currentPrice);
                     break;
             }
 
-        } while (serviceID != 0);
+        } while (serviceID != 0); //The program will end and stop showing the menu only if the client chooses 0
 
+    }
+    // displayStockStatus() method here
+    private static void displayStockStatus(String[] symbol ,String[] name ,double[] closing, double[] current ){
+    
+    System.out.printf("%s %n", "Stock status in details:");
+    System.out.println("-----------------------------------");
+    System.out.printf("%-21s %-16s %-27s %-17s %-4s %n", "Stock Name", "Stock Symbol", "Previous Closing Price", "Current Price", "Change Percent");
+    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", symbol[0], name[0], (float)closing[0], (float)current[0], (float)getChangePercent((float)current[0],(float)closing[0]));
+    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", symbol[1], name[1], (float)closing[1], (float)current[1], (float)getChangePercent((float)current[1],(float)closing[1]));
+    System.out.printf("%-25s %-21s %-22.2f %-17.2f %-4.2f %n", symbol[2], name[2], (float)closing[2], (float)current[2], (float)getChangePercent((float)current[2],(float)closing[2]));
+    System.out.println("------------------------------------------------------");
+    System.out.println();
+    
+    }
+    // displayEquitySummary() method here
+     private static void displayEquitySummary(String[] symbol , double[] current){
+
+     System.out.printf("%s %n", "Clients Portfolio Summary :");
+     System.out.println("-----------------------------------");
+     System.out.printf("%-11s %-11s %-11s %-11s %-11s  %n", "Name", "ID", symbol[0], symbol[1], symbol[2]);
+     
+     for (int i = 0; i < clientNames.length; i++){
+            System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", 
+                    clientNames[i], clientIDs[i], aaplShare[i]*current[0], msftShare[i]*current[1], googlShare[i]*current[2]);
+     }
+     System.out.println();    
+     }    
+    public static void getClientsInfo() {
+
+        for (int i = 0; i < 5; i++)
+        {
+            clientNames[i] = read.next();
+            clientIDs[i] = read.next();
+            aaplShare[i] = read.nextInt();
+            msftShare[i] = read.nextInt();
+            googlShare[i] = read.nextInt();
+        }   
+
+    }
+    public static double getChangePercent(double x,double y) {
+        double changePercent = (((x - y)/y)*100);
+        return changePercent;
     }
 }
