@@ -24,31 +24,21 @@ public class InvestmentPortfolio {
         
         double[] currentPrice =
         { 141.52, 257.22, 95.0 };
-       
         
-        getClientsInfo();
+        
+        
+        String[] clientNames = new String[5];
+        String[] clientIDs = new String[5];
+        int[] aaplShare = new int[5];
+        int[] msftShare = new int[5];
+        int[] googlShare = new int[5];
+        
+        
+        
        
-     /*   //Closing prices and current price for each company
-        double appleClose = 0.40;
-        double msftClose = 25.99;
-        double googleClose = 148.00;
-        double appleCurrent = 141.52;
-        double msftCurrent = 257.22;
-        double googleCurrent = 95.00;
-
-        //Computing the share equity for the two users
-        double appleEquity1 = aaplShare1 * appleCurrent;
-        double msftEquity1 = msftShare1 * msftCurrent;
-        double googleEquity1 = googlShare1 * googleCurrent;
-        double appleEquity2 = aaplShare2 * appleCurrent;
-        double msftEquity2 = msftShare2 * msftCurrent;
-        double googleEquity2 = googlShare2 * googleCurrent;
-
-        //Computing the percentage of change from the previous closing prices to current prices 
-        double appleChange = ((appleCurrent - appleClose) / appleClose) * 100;
-        double msftChange = ((msftCurrent - msftClose) / msftClose) * 100;
-        double googleChange = ((googleCurrent - googleClose) / googleClose) * 100;*/
-
+        getClientsInfo(clientNames,clientIDs,aaplShare,msftShare,googlShare);
+        
+        
         int serviceID;
 
         System.out.println("Welcome to Max Profit Stock Exchange");
@@ -74,7 +64,8 @@ public class InvestmentPortfolio {
                     System.out.println("Message: Program ended");
                     break;
                 case 1:
-                   // displayEquitySummary();
+
+                    displayEquitySummary(stockSymbolsList , currentPrice, clientNames,clientIDs, aaplShare, msftShare, googlShare);
                     break;
                 case 2:
                     displayStockStatus(stockSymbolsList,stockNameList,previousClosingPrice,currentPrice);
@@ -98,23 +89,24 @@ public class InvestmentPortfolio {
     
     }
     // displayEquitySummary() method here
-     private static void displayEquitySummary(String[] symbol , double[] closing){
-     
+     private static void displayEquitySummary(String[] symbol , double[] current, String [] clientNames, 
+             String[] clientIDs, int[] aaplShare, int[] msftShare, int[] googlShare){
+
      System.out.printf("%s %n", "Clients Portfolio Summary :");
      System.out.println("-----------------------------------");
      System.out.printf("%-11s %-11s %-11s %-11s %-11s  %n", "Name", "ID", symbol[0], symbol[1], symbol[2]);
-     System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name1, id1, appleEquity1, msftEquity1, googleEquity1);
-     System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", name2, id2, appleEquity2, msftEquity2, googleEquity2);
-     System.out.println("------------------------------------------------------");
+     
+     for (int i = 0; i < clientNames.length; i++){
+            System.out.printf("%-11s %-11s %-11.2f %-11.2f %-11.2f %n", 
+                    clientNames[i], clientIDs[i], aaplShare[i]*current[0], msftShare[i]*current[1], googlShare[i]*current[2]);
+     }
      System.out.println();    
      }    
-    public static void getClientsInfo() {
-
-        String[] clientNames = new String[5];
-        String[] clientIDs = new String[5];
-        int[] aaplShare = new int[5];
-        int[] msftShare = new int[5];
-        int[] googlShare = new int[5];
+    public static void getClientsInfo(String[] clientNames,
+        String[] clientIDs,
+        int[] aaplShare,
+        int[] msftShare,
+        int[] googlShare) {
 
         for (int i = 0; i < 5; i++)
         {
@@ -123,7 +115,8 @@ public class InvestmentPortfolio {
             aaplShare[i] = read.nextInt();
             msftShare[i] = read.nextInt();
             googlShare[i] = read.nextInt();
-        }
+        }   
+
     }
     public static double getChangePercent(double x,double y) {
         double changePercent = (((x - y)/y)*100);
